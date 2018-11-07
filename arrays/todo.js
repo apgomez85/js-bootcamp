@@ -1,17 +1,36 @@
 const todos = [
-  'Learn to code',
-  'Exercise',
-  'Eat Well',
-  'Save money',
-  'Clean up'
+  {
+    text: 'Learn to code',
+    completed: false
+  },
+  {
+    text: 'Exercise',
+    completed: true
+  },
+  {
+    text: 'Eat Well',
+    completed: true
+  },
+  {
+    text: 'Save money',
+    completed: false
+  },
+  {
+    text: 'Clean up',
+    completed: false
+  }
 ];
 
-todos.splice(2, 1);
-todos.push('Drink more water');
-todos.shift();
+const deleteTodo = function(todos, text) {
+  const index = todos.findIndex(function(todo, index) {
+    if (todo.text) {
+      return todo.text.toLowerCase() === text.toLowerCase();
+    }
+  });
+  if (index > -1) {
+    todos.splice(index, 1);
+  }
+};
 
-console.log(`You have ${todos.length} todos.`);
-
-todos.forEach(function(item, index) {
-  console.log(`${index + 1}. ${item}`);
-});
+deleteTodo(todos, 'exercise');
+console.log(todos);
