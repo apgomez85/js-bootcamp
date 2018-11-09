@@ -17,7 +17,7 @@ const todos = [
   },
   {
     text: 'Clean up',
-    completed: false
+    completed: true
   }
 ];
 
