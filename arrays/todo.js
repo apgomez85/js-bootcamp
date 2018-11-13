@@ -32,5 +32,13 @@ const deleteTodo = function(todos, text) {
   }
 };
 
-deleteTodo(todos, 'exercise');
-console.log(todos);
+const getThingsToDo = function(todos) {
+  return todos.filter(function(todos) {
+    return !todos.completed;
+  });
+};
+
+console.log(getThingsToDo(todos));
+
+// deleteTodo(todos, 'exercise');
+// console.log(todos);

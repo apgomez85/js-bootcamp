@@ -26,6 +26,16 @@ const findNote = function(notes, noteTitle) {
 const note = findNote(notes, 'office modification');
 console.log(note);
 
+const findNotes = function(notes, query) {
+  return notes.filter(function(notes, index) {
+    const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase());
+    const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase());
+    return isTitleMatch || isBodyMatch;
+  });
+};
+
+console.log(findNotes(notes, 'eating'));
+
 // console.log(notes.length);
 // console.log(notes);
 
