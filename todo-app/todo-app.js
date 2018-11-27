@@ -56,15 +56,14 @@ todos.forEach(todo => {
   document.querySelector('#todo-list').appendChild(newParagraph);
 });
 
-document.querySelector('#addButton').addEventListener('click', function() {
-  console.log("I'm adding a new todo.");
-});
-
-document.querySelector('#new-todo-text').addEventListener('input', function(e) {
-  console.log(e.target.value);
-});
-
 document.querySelector('#search-todo').addEventListener('input', function(e) {
   filters.searchText = e.target.value;
+  renderTodos(todos, filters);
+});
+
+document.querySelector('#todo-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  todos.push({ text: e.target.elements.addTodo.value, completed: false });
+  e.target.elements.addTodo.value = '';
   renderTodos(todos, filters);
 });
