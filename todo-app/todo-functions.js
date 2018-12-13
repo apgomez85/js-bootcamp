@@ -41,8 +41,19 @@ const renderTodos = function(todos, filters) {
 };
 
 const generateTodoDOM = function(todo) {
-  const todoEl = document.createElement('p');
-  todoEl.textContent = todo.text;
+  const todoEl = document.createElement('div');
+  const check = document.createElement('input');
+  const textEl = document.createElement('span');
+  const button = document.createElement('button');
+
+  check.setAttribute('type', 'checkbox');
+  textEl.textContent = todo.text;
+  button.textContent = 'Remove';
+
+  todoEl.appendChild(check);
+  todoEl.appendChild(textEl);
+  todoEl.appendChild(button);
+
   return todoEl;
 };
 
